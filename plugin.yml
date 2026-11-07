@@ -1,0 +1,14 @@
+name: HexaCase
+version: 1.0.0
+main: ru.hexatime.hexacase.HexaCase
+api-version: '1.21'
+description: Кейсы с выбором сундука для HexaTime
+commands:
+  case:
+    description: Управление кейсами (только owner)
+    usage: /case <give|count|setblock|removeblock|list|reload>
+    aliases: [hcase]
+permissions:
+  hexacase.admin:
+    description: Выдача кейсов и управление блоками кейсов
+    default: false

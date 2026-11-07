@@ -1,0 +1,119 @@
+# HexaCase — настройки
+# Цвета: &a, &6 и т.д. Подстановки в командах: {player} (ник), {uuid} (UUID).
+
+timeout-seconds: 30     # сколько секунд игрок выбирает сундук
+reveal-seconds: 6       # сколько секунд показывать награды остальных сундуков
+ring-radius: 3          # радиус кольца сундуков вокруг игрока
+
+crates:
+  free:
+    name: "&aБесплатный кейс"
+    icon: CHEST
+    chests: 6
+    rewards:
+      golden_apple:
+        weight: 25
+        name: "&6Золотые яблоки x8"
+        material: GOLDEN_APPLE
+        amount: 8
+      diamond_block:
+        weight: 8
+        name: "&bАлмазный блок"
+        material: DIAMOND_BLOCK
+        amount: 1
+      money_5000:
+        weight: 20
+        name: "&a$5 000"
+        # ЗАМЕНИТЕ на команду выдачи денег вашей экономики (ExcellentEconomy)
+        commands:
+          - "eco give {player} 5000"
+      money_10000:
+        weight: 10
+        name: "&a$10 000"
+        # ЗАМЕНИТЕ на команду выдачи денег вашей экономики (ExcellentEconomy)
+        commands:
+          - "eco give {player} 10000"
+      pickaxe:
+        weight: 12
+        name: "&bКирка"
+        material: DIAMOND_PICKAXE
+        amount: 1
+      sword:
+        weight: 12
+        name: "&bМеч"
+        material: DIAMOND_SWORD
+        amount: 1
+      axe:
+        weight: 8
+        name: "&bТопор"
+        material: DIAMOND_AXE
+        amount: 1
+      enchanted_apple:
+        weight: 5
+        name: "&dЗачарованное яблоко"
+        material: ENCHANTED_GOLDEN_APPLE
+        amount: 1
+
+  # ШАНСЫ НИЖЕ — ЧЕРНОВЫЕ, подтвердите или поменяйте.
+  # weight — относительный вес, сумма не обязана быть 100.
+  # skip-if-permission: если у игрока уже есть эта группа или выше (права group.<имя>),
+  # ранг не выдаётся, а выполняются fallback-commands.
+  privilege:
+    name: "&6Кейс «Привилегия»"
+    icon: ENDER_CHEST
+    chests: 6
+    rewards:
+      baron:
+        weight: 38
+        name: "&aБарон &7(навсегда)"
+        commands: ["lp user {uuid} parent add baron"]
+        skip-if-permission: "group.baron"
+        fallback-commands: ["give {uuid} minecraft:diamond_block 8"]
+      titan:
+        weight: 26
+        name: "&aТитан &7(навсегда)"
+        commands: ["lp user {uuid} parent add titan"]
+        skip-if-permission: "group.titan"
+        fallback-commands: ["give {uuid} minecraft:diamond_block 8"]
+      cerber:
+        weight: 16
+        name: "&9Цербер &7(навсегда)"
+        commands: ["lp user {uuid} parent add cerber"]
+        skip-if-permission: "group.cerber"
+        fallback-commands: ["give {uuid} minecraft:diamond_block 8"]
+      gercog:
+        weight: 9
+        name: "&9Герцог &7(навсегда)"
+        commands: ["lp user {uuid} parent add gercog"]
+        skip-if-permission: "group.gercog"
+        fallback-commands: ["give {uuid} minecraft:diamond_block 8"]
+      general:
+        weight: 5
+        name: "&5Генерал &7(навсегда)"
+        commands: ["lp user {uuid} parent add general"]
+        skip-if-permission: "group.general"
+        fallback-commands: ["give {uuid} minecraft:diamond_block 8"]
+      princ:
+        weight: 3
+        name: "&5Принц &7(навсегда)"
+        commands: ["lp user {uuid} parent add princ"]
+        skip-if-permission: "group.princ"
+        fallback-commands: ["give {uuid} minecraft:diamond_block 8"]
+      knyaz:
+        weight: 1.5
+        name: "&dКнязь &7(навсегда)"
+        commands: ["lp user {uuid} parent add knyaz"]
+        skip-if-permission: "group.knyaz"
+        fallback-commands: ["give {uuid} minecraft:diamond_block 8"]
+      korol:
+        weight: 1
+        name: "&6Король &7(навсегда)"
+        commands: ["lp user {uuid} parent add korol"]
+        skip-if-permission: "group.korol"
+        fallback-commands: ["give {uuid} minecraft:diamond_block 8"]
+      imperator:
+        weight: 0.5
+        name: "&c&lИмператор &7(30 дней)"
+        commands: ["lp user {uuid} parent addtemp imperator 30d"]
+        skip-if-permission: "group.imperator"
+        fallback-commands: ["give {uuid} minecraft:diamond_block 8"]
